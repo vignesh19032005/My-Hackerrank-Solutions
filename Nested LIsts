@@ -1,0 +1,39 @@
+if __name__ == '__main__':
+    
+    students = []
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        students.append([name, score])
+    
+    s_name = []    
+    score = 100
+    
+    for student in students:
+        if student[1] < score:
+            score = student[1]
+            s_name.clear()
+            s_name.append(student)
+        elif student[1] == score:
+            s_name.append(student)
+        else:
+            continue
+        
+    while len(s_name) > 0:        
+        students.remove(s_name[0])
+        s_name.remove(s_name[0])
+        score += 100
+    
+    for student in students:
+        if student[1] < score:
+            score = student[1]
+            s_name.clear()
+            s_name.append(student[0])
+        elif student[1] == score:
+            s_name.append(student[0])
+        else:
+            continue
+    
+    s_name.sort()    
+    for s in s_name:
+        print(
