@@ -1,0 +1,9 @@
+import itertools
+
+if __name__ == '__main__':
+    x, y, z, n = int(input()), int(input()), int(input()), int(input())
+    weirdList = []
+    for i,j,k in itertools.product(range(x+1), range(y+1), range(z+1)):
+        if i + j + k != n:
+            weirdList.append([i, j, k])
+    print(weirdList)
